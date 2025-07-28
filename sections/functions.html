@@ -1,0 +1,87 @@
+<!-- Functions Section -->
+<section id="functions" class="section">
+    <div class="container">
+        <h2>Functions & Methods</h2>
+        <p class="section-intro">Functions are reusable blocks of code that perform specific tasks. They help organize your code and avoid repetition.</p>
+        
+        <div class="lesson-content">
+            <div class="theory">
+                <h3>Function Basics</h3>
+                <ul>
+                    <li><strong>def</strong> - Keyword to define a function</li>
+                    <li><strong>Parameters</strong> - Input values for the function</li>
+                    <li><strong>Return</strong> - Output value from the function</li>
+                    <li><strong>Calling</strong> - Using the function</li>
+                </ul>
+            </div>
+            
+            <div class="code-example">
+                <h4>Function Examples</h4>
+                <div class="code-editor">
+                    <div class="code-header">
+                        <span>functions_example.py</span>
+                        <button class="run-btn" onclick="runCode('functions')">Run Code</button>
+                    </div>
+                    <textarea id="functions-code" class="code-input"># Simple function without parameters
+def greet():
+    print("Hello, World!")
+
+# Function with parameters
+def greet_person(name):
+    print(f"Hello, {name}!")
+
+# Function with return value
+def add_numbers(a, b):
+    result = a + b
+    return result
+
+# Function with default parameter
+def introduce(name, age=25):
+    return f"Hi, I'm {name} and I'm {age} years old."
+
+# Calling functions
+greet()
+greet_person("Alice")
+
+sum_result = add_numbers(5, 3)
+print(f"5 + 3 = {sum_result}")
+
+print(introduce("Bob"))
+print(introduce("Charlie", 30))</textarea>
+                </div>
+                <div class="output" id="functions-output">
+                    <div class="output-header">Output:</div>
+                    <div class="output-content">Click "Run Code" to see the output</div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h4>Create Your Own Function</h4>
+                <p>Write a function that calculates the area of a rectangle. It should take length and width as parameters and return the area.</p>
+                <div class="code-editor">
+                    <div class="code-header">
+                        <span>rectangle_function.py</span>
+                        <button class="run-btn" onclick="runCode('functions-exercise')">Run Code</button>
+                    </div>
+                    <textarea id="functions-exercise-code" class="code-input"># Create a function called calculate_area
+# Parameters: length, width
+# Return: area (length * width)
+
+def calculate_area(length, width):
+    # Your code here
+    pass
+
+# Test your function
+length = 10
+width = 5
+area = calculate_area(length, width)
+print(f"Rectangle area: {length} x {width} = {area}")</textarea>
+                </div>
+                <div class="output" id="functions-exercise-output">
+                    <div class="output-header">Output:</div>
+                    <div class="output-content">Complete the function and run it!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

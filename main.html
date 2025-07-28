@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Python - Interactive Tutorial</title>
+    
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/navigation.css">
+    <link rel="stylesheet" href="css/buttons.css">
+    <link rel="stylesheet" href="css/hero.css">
+    <link rel="stylesheet" href="css/lessons.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <h1 class="logo">🐍 Learn Python</h1>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#variables" class="nav-link">Variables</a></li>
+                    <li><a href="#functions" class="nav-link">Functions</a></li>
+                    <li><a href="#classes" class="nav-link">Classes</a></li>
+                    <li><a href="#imports" class="nav-link">Imports</a></li>
+                    <li><a href="#lists" class="nav-link">Lists & Arrays</a></li>
+                    <li><a href="#patterns" class="nav-link">Design Patterns</a></li>
+                </ul>
+                <div class="hamburger">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main id="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section active">
+            <div class="container">
+                <div class="hero">
+                    <h1>Master Python Programming</h1>
+                    <p>Learn Python from the ground up with interactive examples, hands-on exercises, and real-world applications.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary" onclick="scrollToSection('variables')">Start Learning</button>
+                        <button class="btn-secondary" onclick="showProgress()">View Progress</button>
+                    </div>
+                </div>
+                
+                <div class="topics-grid">
+                    <div class="topic-card" onclick="scrollToSection('variables')">
+                        <div class="topic-icon">📝</div>
+                        <h3>Variables</h3>
+                        <p>Learn about data types, variable assignment, and naming conventions</p>
+                    </div>
+                    <div class="topic-card" onclick="scrollToSection('functions')">
+                        <div class="topic-icon">⚙️</div>
+                        <h3>Functions & Methods</h3>
+                        <p>Create reusable code with functions, parameters, and return values</p>
+                    </div>
+                    <div class="topic-card" onclick="scrollToSection('classes')">
+                        <div class="topic-icon">🏗️</div>
+                        <h3>Classes & Objects</h3>
+                        <p>Object-oriented programming with classes, inheritance, and encapsulation</p>
+                    </div>
+                    <div class="topic-card" onclick="scrollToSection('imports')">
+                        <div class="topic-icon">📦</div>
+                        <h3>Imports & Modules</h3>
+                        <p>Organize code with modules and leverage Python's extensive library ecosystem</p>
+                    </div>
+                    <div class="topic-card" onclick="scrollToSection('lists')">
+                        <div class="topic-icon">📋</div>
+                        <h3>Lists & Arrays</h3>
+                        <p>Work with collections, iterate through data, and manipulate sequences</p>
+                    </div>
+                    <div class="topic-card" onclick="scrollToSection('patterns')">
+                        <div class="topic-icon">🎯</div>
+                        <h3>Design Patterns</h3>
+                        <p>Learn common programming patterns and best practices</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Variables Section -->
+        <section id="variables" class="section">
+            <div class="container">
+                <h2>Python Variables & Data Types</h2>
+                <p class="section-intro">Variables are containers for storing data values. Python has several built-in data types.</p>
+                
+                <div class="lesson-content">
+                    <div class="theory">
+                        <h3>Basic Data Types</h3>
+                        <ul>
+                            <li><strong>int</strong> - Integers (whole numbers)</li>
+                            <li><strong>float</strong> - Decimal numbers</li>
+                            <li><strong>str</strong> - Text strings</li>
+                            <li><strong>bool</strong> - True/False values</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="code-example">
+                        <h4>Interactive Example</h4>
+                        <div class="code-editor">
+                            <div class="code-header">
+                                <span>variables_example.py</span>
+                                <button class="run-btn" onclick="runCode('variables')">Run Code</button>
+                            </div>
+                            <textarea id="variables-code" class="code-input"># Variable Assignment Examples
+name = "Alice"          # String
+age = 25               # Integer
+height = 5.6           # Float
+is_student = True      # Boolean
+
+# Print variables
+print(f"Name: {name}")
+print(f"Age: {age}")
+print(f"Height: {height}")
+print(f"Is Student: {is_student}")
+
+# Variable types
+print(f"Type of name: {type(name)}")
+print(f"Type of age: {type(age)}")
+print(f"Type of height: {type(height)}")
+print(f"Type of is_student: {type(is_student)}")</textarea>
+                        </div>
+                        <div class="output" id="variables-output">
+                            <div class="output-header">Output:</div>
+                            <div class="output-content">Click "Run Code" to see the output</div>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h4>Try It Yourself</h4>
+                        <p>Create variables for your favorite movie, year it was released, rating (1-10), and whether you own it.</p>
+                        <div class="code-editor">
+                            <div class="code-header">
+                                <span>your_exercise.py</span>
+                                <button class="run-btn" onclick="runCode('variables-exercise')">Run Code</button>
+                            </div>
+                            <textarea id="variables-exercise-code" class="code-input"># Your turn! Create variables for:
+# 1. Favorite movie (string)
+# 2. Release year (integer)
+# 3. Your rating (float)
+# 4. Do you own it? (boolean)
+
+# Write your code here
+
+
+# Print all your variables</textarea>
+                        </div>
+                        <div class="output" id="variables-exercise-output">
+                            <div class="output-header">Output:</div>
+                            <div class="output-content">Write your code and run it!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Functions Section -->
+        <section id="functions" class="section">
+            <div class="container">
+                <h2>Functions & Methods</h2>
+                <p class="section-intro">Functions are reusable blocks of code that perform specific tasks. They help organize your code and avoid repetition.</p>
+                
+                <div class="lesson-content">
+                    <div class="theory">
+                        <h3>Function Basics</h3>
+                        <ul>
+                            <li><strong>def</strong> - Keyword to define a function</li>
+                            <li><strong>Parameters</strong> - Input values for the function</li>
+                            <li><strong>Return</strong> - Output value from the function</li>
+                            <li><strong>Calling</strong> - Using the function</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="code-example">
+                        <h4>Function Examples</h4>
+                        <div class="code-editor">
+                            <div class="code-header">
+                                <span>functions_example.py</span>
+                                <button class="run-btn" onclick="runCode('functions')">Run Code</button>
+                            </div>
+                            <textarea id="functions-code" class="code-input"># Simple function without parameters
+def greet():
+    print("Hello, World!")
+
+# Function with parameters
+def greet_person(name):
+    print(f"Hello, {name}!")
+
+# Function with return value
+def add_numbers(a, b):
+    result = a + b
+    return result
+
+# Function with default parameter
+def introduce(name, age=25):
+    return f"Hi, I'm {name} and I'm {age} years old."
+
+# Calling functions
+greet()
+greet_person("Alice")
+
+sum_result = add_numbers(5, 3)
+print(f"5 + 3 = {sum_result}")
+
+print(introduce("Bob"))
+print(introduce("Charlie", 30))</textarea>
+                        </div>
+                        <div class="output" id="functions-output">
+                            <div class="output-header">Output:</div>
+                            <div class="output-content">Click "Run Code" to see the output</div>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h4>Create Your Own Function</h4>
+                        <p>Write a function that calculates the area of a rectangle. It should take length and width as parameters and return the area.</p>
+                        <div class="code-editor">
+                            <div class="code-header">
+                                <span>rectangle_function.py</span>
+                                <button class="run-btn" onclick="runCode('functions-exercise')">Run Code</button>
+                            </div>
+                            <textarea id="functions-exercise-code" class="code-input"># Create a function called calculate_area
+# Parameters: length, width
+# Return: area (length * width)
+
+def calculate_area(length, width):
+    # Your code here
+    pass
+
+# Test your function
+length = 10
+width = 5
+area = calculate_area(length, width)
+print(f"Rectangle area: {length} x {width} = {area}")</textarea>
+                        </div>
+                        <div class="output" id="functions-exercise-output">
+                            <div class="output-header">Output:</div>
+                            <div class="output-content">Complete the function and run it!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Classes Section -->
+        <section id="classes" class="section">
+            <div class="container">
+                <h2>Classes & Objects</h2>
+                <p class="section-intro">Classes are blueprints for creating objects. They encapsulate data and behavior together.</p>
+                
+                <div class="lesson-content">
+                    <div class="theory">
+                        <h3>Object-Oriented Programming</h3>
+                        <ul>
+                            <li><strong>Class</strong> - Template for creating objects</li>
+                            <li><strong>Object</strong> - Instance of a class</li>
+                            <li><strong>__init__</strong> - Constructor method</li>
+                            <li><strong>self</strong> - Reference to the current instance</li>
+                            <li><strong>Methods</strong> - Functions inside a class</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="code-example">
+                        <h4>Class Example</h4>
+                        <div class="code-editor">
+                            <div class="code-header">
+                                <span>classes_example.py</span>
+                                <button class="run-btn" onclick="runCode('classes')">Run Code</button>
+                            </div>
+                            <textarea id="classes-code" class="code-input"># Define a class
+class Dog:
+    # Constructor (initializer)
+    def __init__(self, name, breed, age):
+        self.name = name
+        self.breed = breed
+        self.age = age
+    
+    # Method to make the dog bark
+    def bark(self):
+        return f"{self.name} says Woof!"
+    
+    # Method to get dog info
+    def get_info(self):
+        return f"{self.name} is a {self.age}-year-old {self.breed}"
+    
+    # Method to have a birthday
+    def have_birthday(self):
+        self.age += 1
+        return f"Happy Birthday {self.name}! Now {self.age} years old."
+
+# Create objects (instances of the class)
+dog1 = Dog("Buddy", "Golden Retriever", 3)
+dog2 = Dog("Max", "German Shepherd", 5)
+
+# Use the methods
+print(dog1.bark())
+print(dog1.get_info())
+print(dog1.have_birthday())
+
+print(dog2.bark())
+print(dog2.get_info())</textarea>
+                        </div>
+                        <div class="output" id="classes-output">
+                            <div class="output-header">Output:</div>
+                            <div class="output-content">Click "Run Code" to see the output</div>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h4>Create a Car Class</h4>
+                        <p>Create a Car class with make, model, and year. Add methods to start the car and get car information.</p>
+                        <div class="code-editor">
+                            <div class="code-header">
+                                <span>car_class.py</span>
+                                <button class="run-btn" onclick="runCode('classes-exercise')">Run Code</button>
+                            </div>
+                            <textarea id="classes-exercise-code" class="code-input"># Create a Car class
+class Car:
+    def __init__(self, make, model, year):
+        # Initialize the car properties
+        pass
+    
+    def start_engine(self):
+        # Return a message about starting the car
+        pass
+    
+    def get_info(self):
+        # Return car information
+        pass
+
+# Create a car object and test it
+my_car = Car("Toyota", "Camry", 2022)
+print(my_car.start_engine())
+print(my_car.get_info())</textarea>
+                        </div>
+                        <div class="output" id="classes-exercise-output">
+                            <div class="output-header">Output:</div>
+                            <div class="output-content">Complete the Car class and run it!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Imports Section -->
+        <section id="imports" class="section">
+            <div class="container">
+                <h2>Python Imports & Modules</h2>
+                <p class="section-intro">Modules allow you to organize code into separate files and reuse functionality. Python has a rich ecosystem of built-in and third-party modules.</p>
+                
+                <div class="lesson-content">
+                    <div class="theory">
+                        <h3>Import Basics</h3>
+                        <ul>
+                            <li><strong>import module</strong> - Import entire module</li>
+                            <li><strong>from module import function</strong> - Import specific functions</li>
+                            <li><strong>import module as alias</strong> - Create an alias</li>
+                            <li><strong>Built-in modules</strong> - Math, random, datetime, etc.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="code-example">
+                        <h4>Import Examples</h4>
+                        <div class="code-editor">
+                            <div class="code-header">
+                                <span>imports_example.py</span>
+                                <button class="run-btn" onclick="runCode('imports')">Run Code</button>
+                            </div>
+                            <textarea id="imports-code" class="code-input"># Different ways to import modules
+import random
+import math
+from datetime import datetime
+import calendar as cal
+
+# Using random module
+random_number = random.randint(1, 10)
+print(f"Random number: {random_number}")
+
+# Using datetime
+current_date = datetime.now().strftime("%Y-%m-%d")
+print(f"Current date: {current_date}")
+
+# Using math module
+sqrt_result = math.sqrt(16)
+print(f"Square root of 16: {sqrt_result}")
+
+# Using calendar with alias
+today = cal.day_name[datetime.now().weekday()]
+print(f"Today is: {today}")
+
+# Exploring math constants
+print("\nAvailable math constants:")
+print(f"π (pi): {math.pi}")
+print(f"e: {math.e}")</textarea>
+                        </div>
+                        <div class="output" id="imports-output">
+                            <div class="output-header">Output:</div>
+                            <div class="output-content">Click "Run Code" to see the output</div>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h4>Create Your Own Module</h4>
+                        <p>Import the math module and create a function that calculates the area of a circle using π.</p>
+                        <div class="code-editor">
+                            <div class="code-header">
+                                <span>circle_calculator.py</span>
+                                <button class="run-btn" onclick="runCode('imports-exercise')">Run Code</button>
+                            </div>
+                            <textarea id="imports-exercise-code" class="code-input"># Import the math module
+import math
+
+# Create a function to calculate circle area
+def calculate_circle_area(radius):
+    # Use math.pi to calculate area
+    # Formula: π * r²
+    pass
+
+# Test your function
+radius = 5
+area = calculate_circle_area(radius)
+print(f"Circle with radius {radius} has area: {area}")</textarea>
+                        </div>
+                        <div class="output" id="imports-exercise-output">
+                            <div class="output-header">Output:</div>
+                            <div class="output-content">Complete the function and run it!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Lists & Arrays Section -->
+        <section id="lists" class="section">
+            <div class="container">
+                <h2>Lists & Arrays in Python</h2>
+                <p class="section-intro">Lists are ordered collections that can store multiple items. They are mutable, meaning you can change them after creation.</p>
+                
+                <div class="lesson-content">
+                    <div class="theory">
+                        <h3>List Operations</h3>
+                        <ul>
+                            <li><strong>Creating</strong> - [item1, item2, item3]</li>
+                            <li><strong>Accessing</strong> - list[index]</li>
+                            <li><strong>Slicing</strong> - list[start:end]</li>
+                            <li><strong>Adding</strong> - append(), insert(), extend()</li>
+                            <li><strong>Removing</strong> - remove(), pop(), del</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="code-example">
+                        <h4>List Examples</h4>
+                        <div class="code-editor">
+                            <div class="code-header">
+                                <span>lists_example.py</span>
+                                <button class="run-btn" onclick="runCode('lists')">Run Code</button>
+                            </div>
+                            <textarea id="lists-code" class="code-input"># Creating and manipulating lists
+fruits = ["apple", "banana", "orange"]
+print(f"Original fruits: {fruits}")
+
+# Adding items
+fruits.append("grape")
+print(f"After adding grape: {fruits}")
+
+# Accessing elements
+print(f"Second fruit: {fruits[1]}")
+
+# Slicing
+print(f"Fruits 1-3: {fruits[1:3]}")
+
+# List length
+print(f"Number of fruits: {len(fruits)}")
+
+# Working with numbers
+numbers = [1, 2, 3, 4, 5]
+print(f"\nNumbers: {numbers}")
+
+# List comprehension
+squared = [x**2 for x in numbers]
+print(f"Squared numbers: {squared}")
+
+# Filtering
+even_numbers = [x for x in numbers if x % 2 == 0]
+print(f"Even numbers: {even_numbers}")
+
+# Built-in functions with lists
+print(f"Sum of numbers: {sum(numbers)}")</textarea>
+                        </div>
+                        <div class="output" id="lists-output">
+                            <div class="output-header">Output:</div>
+                            <div class="output-content">Click "Run Code" to see the output</div>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h4>Shopping List Manager</h4>
+                        <p>Create a shopping list and add functions to add items, remove items, and check if an item exists.</p>
+                        <div class="code-editor">
+                            <div class="code-header">
+                                <span>shopping_list.py</span>
+                                <button class="run-btn" onclick="runCode('lists-exercise')">Run Code</button>
+                            </div>
+                            <textarea id="lists-exercise-code" class="code-input"># Shopping list manager
+shopping_list = ["milk", "bread", "eggs"]
+
+def add_item(item):
+    # Add item to shopping list
+    pass
+
+def remove_item(item):
+    # Remove item from shopping list if it exists
+    pass
+
+def check_item(item):
+    # Check if item is in shopping list
+    pass
+
+# Test your functions
+print(f"Current list: {shopping_list}")
+add_item("cheese")
+print(f"After adding cheese: {shopping_list}")
+print(f"Is milk in list? {check_item('milk')}")
+remove_item("bread")
+print(f"After removing bread: {shopping_list}")</textarea>
+                        </div>
+                        <div class="output" id="lists-exercise-output">
+                            <div class="output-header">Output:</div>
+                            <div class="output-content">Complete the functions and run it!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Design Patterns Section -->
+        <section id="patterns" class="section">
+            <div class="container">
+                <h2>Common Design Patterns</h2>
+                <p class="section-intro">Design patterns are reusable solutions to common programming problems. Here are 5 essential patterns every Python developer should know.</p>
+                
+                <div class="lesson-content">
+                    <div class="theory">
+                        <h3>5 Essential Design Patterns</h3>
+                        <ul>
+                            <li><strong>Singleton</strong> - Ensure only one instance exists</li>
+                            <li><strong>Factory</strong> - Create objects without specifying exact classes</li>
+                            <li><strong>Observer</strong> - Notify multiple objects about state changes</li>
+                            <li><strong>Strategy</strong> - Define family of algorithms, make them interchangeable</li>
+                            <li><strong>Command</strong> - Encapsulate requests as objects</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="code-example">
+                        <h4>Design Patterns Examples</h4>
+                        <div class="code-editor">
+                            <div class="code-header">
+                                <span>design_patterns.py</span>
+                                <button class="run-btn" onclick="runCode('patterns')">Run Code</button>
+                            </div>
+                            <textarea id="patterns-code" class="code-input"># 1. Singleton Pattern
+class DatabaseConnection:
+    _instance = None
+    
+    def __new__(cls):
+        if cls._instance is None:
+            cls._instance = super().__new__(cls)
+        return cls._instance
+
+# 2. Factory Pattern
+class Animal:
+    def speak(self):
+        pass
+
+class Dog(Animal):
+    def speak(self):
+        return "Woof!"
+
+class Cat(Animal):
+    def speak(self):
+        return "Meow!"
+
+class AnimalFactory:
+    @staticmethod
+    def create_animal(animal_type):
+        if animal_type == "dog":
+            return Dog()
+        elif animal_type == "cat":
+            return Cat()
+
+# 3. Observer Pattern
+class NewsAgency:
+    def __init__(self):
+        self._observers = []
+    
+    def subscribe(self, observer):
+        self._observers.append(observer)
+    
+    def notify(self, news):
+        for observer in self._observers:
+            observer.update(news)
+
+class NewsSubscriber:
+    def __init__(self, name):
+        self.name = name
+    
+    def update(self, news):
+        print(f"{self.name} received: {news}")
+
+# 4. Strategy Pattern
+class PaymentStrategy:
+    def pay(self, amount):
+        pass
+
+class CreditCardPayment(PaymentStrategy):
+    def pay(self, amount):
+        return f"Credit Card: Processing ${amount:.2f} with card ****1234"
+
+class PayPalPayment(PaymentStrategy):
+    def pay(self, amount):
+        return f"PayPal: Processing ${amount:.2f} via PayPal account user@email.com"
+
+# 5. Command Pattern
+class Command:
+    def execute(self):
+        pass
+    
+    def undo(self):
+        pass
+
+class Light:
+    def __init__(self):
+        self.is_on = False
+    
+    def turn_on(self):
+        self.is_on = True
+        return "Light is ON"
+    
+    def turn_off(self):
+        self.is_on = False
+        return "Light is OFF"
+
+class LightOnCommand(Command):
+    def __init__(self, light):
+        self.light = light
+    
+    def execute(self):
+        return self.light.turn_on()
+    
+    def undo(self):
+        return self.light.turn_off()
+
+# Demonstrating the patterns
+print("=== Singleton Pattern ===")
+db1 = DatabaseConnection()
+db2 = DatabaseConnection()
+print(f"Database instance 1 ID: {id(db1)}")
+print(f"Database instance 2 ID: {id(db2)}")
+print(f"Same instance? {db1 is db2}")
+
+print("\n=== Factory Pattern ===")
+factory = AnimalFactory()
+dog = factory.create_animal("dog")
+cat = factory.create_animal("cat")
+print(f"Dog: Buddy says {dog.speak()}")
+print(f"Cat: Whiskers says {cat.speak()}")
+
+print("\n=== Observer Pattern ===")
+news_agency = NewsAgency()
+user1 = NewsSubscriber("User1")
+user2 = NewsSubscriber("User2")
+news_agency.subscribe(user1)
+news_agency.subscribe(user2)
+news_agency.notify("Breaking news!")
+news_agency.notify("Weather update!")
+
+print("\n=== Strategy Pattern ===")
+credit_card = CreditCardPayment()
+paypal = PayPalPayment()
+print(credit_card.pay(100.00))
+print(paypal.pay(150.00))
+
+print("\n=== Command Pattern ===")
+light = Light()
+light_on = LightOnCommand(light)
+print(light_on.execute())
+print(light_on.undo())
+print("Undoing last command...")
+print(light_on.execute())</textarea>
+                        </div>
+                        <div class="output" id="patterns-output">
+                            <div class="output-header">Output:</div>
+                            <div class="output-content">Click "Run Code" to see the output</div>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h4>Implement Your Own Pattern</h4>
+                        <p>Create a simple Factory pattern for creating different types of vehicles (Car, Bicycle, Motorcycle).</p>
+                        <div class="code-editor">
+                            <div class="code-header">
+                                <span>vehicle_factory.py</span>
+                                <button class="run-btn" onclick="runCode('patterns-exercise')">Run Code</button>
+                            </div>
+                            <textarea id="patterns-exercise-code" class="code-input"># Vehicle Factory Pattern Exercise
+class Vehicle:
+    def start(self):
+        pass
+
+class Car(Vehicle):
+    def start(self):
+        return "Car engine started with a key"
+
+class Bicycle(Vehicle):
+    def start(self):
+        return "Bicycle ready - start pedaling!"
+
+class Motorcycle(Vehicle):
+    def start(self):
+        return "Motorcycle engine started with a kick"
+
+class VehicleFactory:
+    @staticmethod
+    def create_vehicle(vehicle_type):
+        # Implement the factory logic here
+        pass
+
+# Test your factory
+factory = VehicleFactory()
+car = factory.create_vehicle("car")
+bicycle = factory.create_vehicle("bicycle")
+motorcycle = factory.create_vehicle("motorcycle")
+
+print(car.start())
+print(bicycle.start())
+print(motorcycle.start())</textarea>
+                        </div>
+                        <div class="output" id="patterns-exercise-output">
+                            <div class="output-header">Output:</div>
+                            <div class="output-content">Complete the factory method and run it!</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Learn Python Tutorial. Built with HTML, CSS, and JavaScript for interactive learning.</p>
+            <div style="margin-top: 1rem;">
+                <button onclick="resetProgress()" class="btn-secondary" style="margin: 0 5px; padding: 8px 16px; font-size: 0.9rem;">Reset Progress</button>
+                <button onclick="exportProgress()" class="btn-secondary" style="margin: 0 5px; padding: 8px 16px; font-size: 0.9rem;">Export Progress</button>
+                <button onclick="importProgress()" class="btn-secondary" style="margin: 0 5px; padding: 8px 16px; font-size: 0.9rem;">Import Progress</button>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Files -->
+    <script src="js/app.js"></script>
+    <script src="js/navigation.js"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/codeExecution.js"></script>
+    <script src="js/pythonOutputs.js"></script>
+</body>
+</html>

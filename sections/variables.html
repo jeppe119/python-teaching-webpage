@@ -1,0 +1,75 @@
+<!-- Variables Section -->
+<section id="variables" class="section">
+    <div class="container">
+        <h2>Python Variables & Data Types</h2>
+        <p class="section-intro">Variables are containers for storing data values. Python has several built-in data types.</p>
+        
+        <div class="lesson-content">
+            <div class="theory">
+                <h3>Basic Data Types</h3>
+                <ul>
+                    <li><strong>int</strong> - Integers (whole numbers)</li>
+                    <li><strong>float</strong> - Decimal numbers</li>
+                    <li><strong>str</strong> - Text strings</li>
+                    <li><strong>bool</strong> - True/False values</li>
+                </ul>
+            </div>
+            
+            <div class="code-example">
+                <h4>Interactive Example</h4>
+                <div class="code-editor">
+                    <div class="code-header">
+                        <span>variables_example.py</span>
+                        <button class="run-btn" onclick="runCode('variables')">Run Code</button>
+                    </div>
+                    <textarea id="variables-code" class="code-input"># Variable Assignment Examples
+name = "Alice"          # String
+age = 25               # Integer
+height = 5.6           # Float
+is_student = True      # Boolean
+
+# Print variables
+print(f"Name: {name}")
+print(f"Age: {age}")
+print(f"Height: {height}")
+print(f"Is Student: {is_student}")
+
+# Variable types
+print(f"Type of name: {type(name)}")
+print(f"Type of age: {type(age)}")
+print(f"Type of height: {type(height)}")
+print(f"Type of is_student: {type(is_student)}")</textarea>
+                </div>
+                <div class="output" id="variables-output">
+                    <div class="output-header">Output:</div>
+                    <div class="output-content">Click "Run Code" to see the output</div>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h4>Try It Yourself</h4>
+                <p>Create variables for your favorite movie, year it was released, rating (1-10), and whether you own it.</p>
+                <div class="code-editor">
+                    <div class="code-header">
+                        <span>your_exercise.py</span>
+                        <button class="run-btn" onclick="runCode('variables-exercise')">Run Code</button>
+                    </div>
+                    <textarea id="variables-exercise-code" class="code-input"># Your turn! Create variables for:
+# 1. Favorite movie (string)
+# 2. Release year (integer)
+# 3. Your rating (float)
+# 4. Do you own it? (boolean)
+
+# Write your code here
+
+
+# Print all your variables</textarea>
+                </div>
+                <div class="output" id="variables-exercise-output">
+                    <div class="output-header">Output:</div>
+                    <div class="output-content">Write your code and run it!</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
