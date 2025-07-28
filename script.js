@@ -211,9 +211,22 @@ function evaluatePrintStatement(content, variables) {
     if (content.startsWith('f"') && content.endsWith('"')) {
         let result = content.slice(2, -1); // Remove f" and "
         // Replace variables in braces
-        result = result.replace(/\{([^}]+)\}/g, (match, varName) => {
-            if (variables[varName]) {
-                return variables[varName];
+        result = result.replace(/\{([^}]+)\}/g, (match, expression) => {
+            // Handle type() function calls
+            if (expression.startsWith('type(') && expression.endsWith(')')) {
+                const varName = expression.slice(5, -1); // Remove 'type(' and ')'
+                if (variables[varName] !== undefined) {
+                    const varValue = variables[varName];
+                    if (typeof varValue === 'string') return "<class 'str'>";
+                    if (typeof varValue === 'number' && Number.isInteger(varValue)) return "<class 'int'>";
+                    if (typeof varValue === 'number') return "<class 'float'>";
+                    if (typeof varValue === 'boolean') return "<class 'bool'>";
+                }
+                return match;
+            }
+            // Handle regular variables
+            if (variables[expression]) {
+                return variables[expression];
             }
             return match;
         });
