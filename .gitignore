@@ -1,0 +1,28 @@
+# Ignore GitHub workflow and configuration files
+.github/
+
+# Common files to ignore
+node_modules/
+.DS_Store
+Thumbs.db
+*.log
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# IDE/Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.temp
+~*
+
+# Build outputs (if you add build tools later)
+dist/
+build/
