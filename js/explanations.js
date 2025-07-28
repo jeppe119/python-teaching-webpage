@@ -188,30 +188,11 @@ function removeExplanation() {
 /**
  * Shows success message when task is completed
  */
-function showSuccessMessage(topic, level, element) {
-    const message = successMessages[topic]?.[level];
-    if (!message) return;
-    
-    // Create success popup
-    const popup = document.createElement('div');
-    popup.className = 'success-popup';
-    popup.innerHTML = `
-        <div class="success-content">
-            <div class="success-icon">✨</div>
-            <p>${message}</p>
-            <button class="btn-primary" onclick="this.parentElement.parentElement.remove()">Continue Learning</button>
-        </div>
-    `;
-    
-    document.body.appendChild(popup);
-    
-    // Auto-remove after 8 seconds
-    setTimeout(() => {
-        if (popup.parentElement) {
-            popup.remove();
-        }
-    }, 8000);
-}
+// Removed: Modal success popup function - replaced with inline feedback only
+// function showSuccessMessage(topic, level, element) {
+//     Modal popup functionality has been disabled per user request
+//     All feedback is now shown inline under the code editor
+// }
 
 /**
  * Analyzes code and provides smart feedback
@@ -348,6 +329,7 @@ function showCodeFeedback(feedback, element) {
  * Checks if the current task has been completed successfully
  */
 function checkTaskCompletion(code, sectionId, element) {
+    // Completion tracking for progress purposes
     let completionLevel = null;
     
     // Variables section completion check
@@ -381,9 +363,8 @@ function checkTaskCompletion(code, sectionId, element) {
         }
     }
     
-    if (completionLevel) {
-        showSuccessMessage(sectionId, completionLevel, element);
-    }
+    // Note: Modal popup removed - only inline feedback is shown
+    // Completion level is tracked but no popup is displayed
 }
 
 /**
