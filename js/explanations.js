@@ -229,8 +229,13 @@ function analyzeCode(code, sectionId) {
             const parts = line.split(' = ');
             if (parts.length >= 2) {
                 const value = parts[1].trim();
-                // Check if it looks like unquoted text
-                if (/^[A-Za-z][A-Za-z\s]+[^"'0-9\]\}\)]$/.test(value)) {
+                // Check if it looks like unquoted text (contains letters/spaces but no quotes, and not a boolean/number)
+                if (/^[A-Za-z][A-Za-z\s]+$/.test(value) && 
+                    value !== 'True' && 
+                    value !== 'False' && 
+                    !value.startsWith('"') && 
+                    !value.startsWith("'") &&
+                    isNaN(value)) {
                     feedback.push({
                         type: 'error',
                         message: 'String values need quotes! Try: name = "Your Text Here"'
