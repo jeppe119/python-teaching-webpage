@@ -154,6 +154,26 @@ function executeSimulatedPython(code, exampleId) {
             line.trim() && !line.trim().startsWith('#')
         );
         
+        // Check if there's any meaningful code
+        if (lines.length === 0) {
+            throw new Error('No code to execute. Please write some Python code first!');
+        }
+        
+        // Check if code contains basic Python elements
+        const hasValidPython = lines.some(line => {
+            const trimmed = line.trim();
+            return trimmed.includes('=') || 
+                   trimmed.startsWith('print(') || 
+                   trimmed.startsWith('def ') || 
+                   trimmed.startsWith('class ') ||
+                   trimmed.startsWith('import ') ||
+                   trimmed.startsWith('from ');
+        });
+        
+        if (!hasValidPython) {
+            throw new Error('Please write valid Python code (variables, print statements, functions, etc.)');
+        }
+        
         let output = '';
         let variables = {};
         
@@ -199,7 +219,12 @@ function executeSimulatedPython(code, exampleId) {
             return getPatternsOutput();
         }
         
-        return output || 'Code executed successfully!';
+        // Only show success message if there's actual output or valid code was processed
+        if (output.trim()) {
+            return output;
+        } else {
+            return 'Code processed successfully! (No output to display)';
+        }
         
     } catch (error) {
         throw new Error('Invalid Python syntax or unsupported operation');
@@ -215,7 +240,7 @@ function evaluatePrintStatement(content, variables) {
             // Handle type() function calls
             if (expression.startsWith('type(') && expression.endsWith(')')) {
                 const varName = expression.slice(5, -1); // Remove 'type(' and ')'
-                if (variables[varName] !== undefined) {
+                if (variables.hasOwnProperty(varName)) {
                     const varValue = variables[varName];
                     if (typeof varValue === 'string') return "<class 'str'>";
                     if (typeof varValue === 'number' && Number.isInteger(varValue)) return "<class 'int'>";
@@ -224,9 +249,14 @@ function evaluatePrintStatement(content, variables) {
                 }
                 return match;
             }
-            // Handle regular variables
-            if (variables[expression]) {
-                return variables[expression];
+            // Handle regular variables - use hasOwnProperty to catch false values
+            if (variables.hasOwnProperty(expression)) {
+                const value = variables[expression];
+                // Convert boolean values to Python format
+                if (typeof value === 'boolean') {
+                    return value ? 'True' : 'False';
+                }
+                return value;
             }
             return match;
         });
@@ -238,9 +268,14 @@ function evaluatePrintStatement(content, variables) {
         return content.slice(1, -1);
     }
     
-    // Handle variables
-    if (variables[content]) {
-        return variables[content];
+    // Handle variables - use hasOwnProperty to catch false values
+    if (variables.hasOwnProperty(content)) {
+        const value = variables[content];
+        // Convert boolean values to Python format
+        if (typeof value === 'boolean') {
+            return value ? 'True' : 'False';
+        }
+        return value;
     }
     
     return content;
