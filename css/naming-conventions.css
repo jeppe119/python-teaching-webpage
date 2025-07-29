@@ -1,0 +1,152 @@
+/* Naming Conventions Section */
+.naming-types {
+    margin: 2rem 0;
+}
+
+.convention-card {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    transition: all 0.3s ease;
+}
+
+.convention-card:hover {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.convention-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.convention-card p {
+    margin: 0.5rem 0;
+    color: var(--text-secondary);
+}
+
+.code-example-inline {
+    background: var(--code-bg, #f8f9fa);
+    padding: 1rem;
+    border-radius: 6px;
+    margin-top: 1rem;
+    border-left: 3px solid var(--primary-color);
+}
+
+.code-example-inline code {
+    font-family: 'Fira Code', monospace;
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+.naming-rules {
+    background: var(--bg-light);
+    padding: 1.5rem;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+}
+
+.naming-rules h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.naming-rules ul {
+    list-style: none;
+    padding: 0;
+}
+
+.naming-rules li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.naming-rules li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--success-color, #28a745);
+    font-weight: bold;
+}
+
+.best-practices {
+    margin: 3rem 0;
+}
+
+.best-practices h3 {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.practice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.practice-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-left: 4px solid var(--success-color, #28a745);
+}
+
+.practice-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+}
+
+.practice-item h4 {
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+    font-size: 1rem;
+}
+
+.practice-item p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.practice-item code {
+    background: var(--code-bg, #f8f9fa);
+    padding: 0.2rem 0.4rem;
+    border-radius: 3px;
+    font-family: 'Fira Code', monospace;
+    font-size: 0.85rem;
+    color: var(--primary-color);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .practice-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .convention-card {
+        padding: 1rem;
+    }
+    
+    .code-example-inline {
+        padding: 0.8rem;
+    }
+    
+    .practice-item {
+        padding: 1rem;
+    }
+}

@@ -8,8 +8,10 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeProgressBar();
     loadProgress();
     
-    // Show home section by default
-    showSection('home');
+    // Check if there's a hash in the URL, otherwise show home
+    const hash = window.location.hash.substring(1);
+    const targetSection = hash && document.getElementById(hash) ? hash : 'home';
+    showSection(targetSection);
 });
 
 // Navigation functionality
@@ -50,12 +52,24 @@ function showSection(sectionId) {
         section.classList.remove('active');
     });
 
+    // Remove active class from all nav links
+    const navLinks = document.querySelectorAll('.nav-link');
+    navLinks.forEach(link => {
+        link.classList.remove('active');
+    });
+
     // Show target section
     const targetSection = document.getElementById(sectionId);
     if (targetSection) {
         targetSection.classList.add('active');
         targetSection.classList.add('fade-in');
         currentSection = sectionId;
+        
+        // Add active class to corresponding nav link
+        const activeNavLink = document.querySelector(`a[href="#${sectionId}"]`);
+        if (activeNavLink) {
+            activeNavLink.classList.add('active');
+        }
         
         // Update URL hash
         window.location.hash = sectionId;

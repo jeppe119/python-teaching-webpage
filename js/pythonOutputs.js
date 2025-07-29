@@ -42,6 +42,12 @@ Squared numbers: [1, 4, 9, 16, 25]
 Even numbers: [2, 4]
 Sum of numbers: 15`,
 
+        'naming-conventions': `User: alice_smith
+Account balance: $0
+Discount on $100 with 10% off: $90.0
+User age: 25
+Max login attempts allowed: 3`,
+
         'patterns': `=== Singleton Pattern ===
 Database instance 1 ID: 140712234567890
 Database instance 2 ID: 140712234567890

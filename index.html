@@ -13,10 +13,13 @@
     <header>
         <nav class="navbar">
             <div class="nav-container">
-                <h1 class="logo">🐍 Learn Python</h1>
+                <div class="logo-section">
+                    <span class="logo-snake">🐍</span>
+                    <h1 class="logo"><a href="#home" class="logo-link">Learn Python</a></h1>
+                </div>
                 <ul class="nav-menu">
                     <li><a href="#what-is-python" class="nav-link">What is Python?</a></li>
-                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#naming-conventions" class="nav-link">Naming Conventions</a></li>
                     <li><a href="#variables" class="nav-link">Variables</a></li>
                     <li><a href="#functions" class="nav-link">Functions</a></li>
                     <li><a href="#classes" class="nav-link">Classes</a></li>
@@ -142,6 +145,201 @@ print("Welcome to Python!")</code></pre>
             </div>
         </section>
 
+        <!-- Naming Conventions Section -->
+        <section id="naming-conventions" class="section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>🏷️ Python Naming Conventions</h2>
+                    <p>Learn the proper way to name variables, functions, classes, and more in Python</p>
+                </div>
+                
+                <div class="lesson-content">
+                    <div class="theory">
+                        <h3>Why Naming Conventions Matter</h3>
+                        <p>Good naming conventions make your code more <strong>readable</strong>, <strong>maintainable</strong>, and help other developers (including future you!) understand your code quickly.</p>
+                        
+                        <div class="naming-rules">
+                            <h4>General Rules</h4>
+                            <ul>
+                                <li>Use descriptive names that explain what the variable/function does</li>
+                                <li>Avoid abbreviations unless they're widely understood</li>
+                                <li>Don't use Python keywords as names</li>
+                                <li>Be consistent throughout your project</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="naming-types">
+                        <h3>Naming Conventions by Type</h3>
+                        
+                        <div class="convention-card">
+                            <h4>📝 Variables & Functions</h4>
+                            <p><strong>Style:</strong> snake_case (lowercase with underscores)</p>
+                            <div class="code-example-inline">
+                                <span class="code-snippet">user_name = "Alice"</span>
+                                <span class="code-snippet">total_price = 99.99</span>
+                                <span class="code-snippet">def calculate_tax(amount):</span>
+                            </div>
+                        </div>
+                        
+                        <div class="convention-card">
+                            <h4>🏗️ Classes</h4>
+                            <p><strong>Style:</strong> PascalCase (each word capitalized)</p>
+                            <div class="code-example-inline">
+                                <span class="code-snippet">class StudentRecord:</span>
+                                <span class="code-snippet">class BankAccount:</span>
+                                <span class="code-snippet">class ShoppingCart:</span>
+                            </div>
+                        </div>
+                        
+                        <div class="convention-card">
+                            <h4>🔒 Constants</h4>
+                            <p><strong>Style:</strong> UPPER_SNAKE_CASE (all uppercase with underscores)</p>
+                            <div class="code-example-inline">
+                                <span class="code-snippet">MAX_USERS = 100</span>
+                                <span class="code-snippet">PI = 3.14159</span>
+                                <span class="code-snippet">DATABASE_URL = "localhost"</span>
+                            </div>
+                        </div>
+                        
+                        <div class="convention-card">
+                            <h4>🔒 Private Variables</h4>
+                            <p><strong>Style:</strong> _single_underscore or __double_underscore</p>
+                            <div class="code-example-inline">
+                                <span class="code-snippet">_internal_var = "private"</span>
+                                <span class="code-snippet">__very_private = "very private"</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="code-example">
+                        <h4>Good vs Bad Examples</h4>
+                        <div class="code-editor">
+                            <div class="code-header">
+                                <span>naming_examples.py</span>
+                                <button class="run-btn" onclick="runCode('naming-conventions')">Run Code</button>
+                            </div>
+                            <textarea id="naming-conventions-code" class="code-input"># 😊 GOOD Examples
+user_age = 25
+first_name = "John"
+is_logged_in = True
+MAX_LOGIN_ATTEMPTS = 3
+
+def calculate_discount(price, discount_rate):
+    return price * (1 - discount_rate)
+
+class UserAccount:
+    def __init__(self, username):
+        self.username = username
+        self._balance = 0  # Private variable
+    
+    def get_balance(self):
+        return self._balance
+
+# 😞 BAD Examples (Don't do this!)
+# a = 25              # What is 'a'?
+# fn = "John"         # What does 'fn' mean?
+# b = True            # What boolean is this?
+# x = 3               # What is this number for?
+
+# Test the good examples
+user = UserAccount("alice_smith")
+discount_amount = calculate_discount(100, 0.1)
+
+print(f"User: {user.username}")
+print(f"Account balance: ${user.get_balance()}")
+print(f"Discount on $100 with 10% off: ${discount_amount}")
+print(f"User age: {user_age}")
+print(f"Max login attempts allowed: {MAX_LOGIN_ATTEMPTS}")</textarea>
+                        </div>
+                        <div class="output" id="naming-conventions-output">
+                            <div class="output-header">Output:</div>
+                            <div class="output-content">Click "Run Code" to see the output</div>
+                        </div>
+                    </div>
+
+                    <div class="exercise">
+                        <h4>Fix the Naming</h4>
+                        <p>Rename the poorly named variables and functions below to follow Python conventions:</p>
+                        <div class="code-editor">
+                            <div class="code-header">
+                                <span>naming_exercise.py</span>
+                                <button class="run-btn" onclick="runCode('naming-exercise')">Run Code</button>
+                            </div>
+                            <textarea id="naming-exercise-code" class="code-input"># Fix these poorly named variables and functions
+# Change them to follow Python naming conventions
+
+# Bad variable names - fix these!
+n = "Alice Johnson"        # This should be a descriptive name
+a = 28                     # This should describe what age this is
+c = "red"                  # This should describe what color this is
+x = True                   # This should describe what boolean state this is
+
+# Bad function name - fix this!
+def calc(w, h):            # Make this function name descriptive
+    return w * h
+
+# Bad class name - fix this!
+class car:                 # Class names should follow PascalCase
+    def __init__(self, make, model):
+        self.make = make
+        self.model = model
+
+# Test your renamed variables and functions
+print(f"Name: {n}")
+print(f"Age: {a}")
+print(f"Favorite color: {c}")
+print(f"Is active: {x}")
+
+area = calc(10, 5)
+print(f"Area: {area}")
+
+my_car = car("Toyota", "Camry")
+print(f"Car: {my_car.make} {my_car.model}")</textarea>
+                        </div>
+                        <div class="output" id="naming-exercise-output">
+                            <div class="output-header">Output:</div>
+                            <div class="output-content">Fix the variable and function names, then run the code!</div>
+                        </div>
+                    </div>
+                    
+                    <div class="best-practices">
+                        <h3>🎯 Best Practices Summary</h3>
+                        <div class="practice-grid">
+                            <div class="practice-item">
+                                <span class="practice-icon">✅</span>
+                                <div>
+                                    <h4>Be Descriptive</h4>
+                                    <p>Use <code>customer_email</code> instead of <code>email</code></p>
+                                </div>
+                            </div>
+                            <div class="practice-item">
+                                <span class="practice-icon">✅</span>
+                                <div>
+                                    <h4>Use Verbs for Functions</h4>
+                                    <p>Use <code>calculate_total()</code> instead of <code>total()</code></p>
+                                </div>
+                            </div>
+                            <div class="practice-item">
+                                <span class="practice-icon">✅</span>
+                                <div>
+                                    <h4>Use Nouns for Classes</h4>
+                                    <p>Use <code>EmailValidator</code> instead of <code>ValidateEmail</code></p>
+                                </div>
+                            </div>
+                            <div class="practice-item">
+                                <span class="practice-icon">✅</span>
+                                <div>
+                                    <h4>Boolean Variables</h4>
+                                    <p>Use <code>is_valid</code> or <code>has_permission</code> for clarity</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Home Section -->
         <section id="home" class="section active">
             <div class="container">
@@ -155,6 +353,11 @@ print("Welcome to Python!")</code></pre>
                 </div>
                 
                 <div class="topics-grid">
+                    <div class="topic-card" onclick="scrollToSection('naming-conventions')">
+                        <div class="topic-icon">🏷️</div>
+                        <h3>Naming Conventions</h3>
+                        <p>Learn proper naming rules for variables, functions, classes, and constants</p>
+                    </div>
                     <div class="topic-card" onclick="scrollToSection('variables')">
                         <div class="topic-icon">📝</div>
                         <h3>Variables</h3>
